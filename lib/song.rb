@@ -1,4 +1,5 @@
 class Song
+  
   attr_accessor :name, :artist, :genre
   @@count = 0
   @@artists
@@ -28,8 +29,12 @@ class Song
   end
 
   def self.genre_count
-    genre_hash = {}
+    genres_hash = @@genres.each_with_object(Hash.new(0)) { |genre,counts| counts[genre] += 1 }
 
+  end
+
+  def self.artist_count
+    artists_hash = @@artists.each_with_object(Hash.new(0)) { |artist,counts| counts[artist] += 1 }
   end
 
 end
